@@ -45,8 +45,8 @@ def get_version():
 
 def get_requirements():
     data = read_from(rel_file('REQUIREMENTS'))
-    lines = map(lambda s: s.strip(), data.splitlines())
-    return filter(None, lines)
+    lines = [s.strip() for s in data.splitlines()]
+    return [_f for _f in lines if _f]
 
 
 def find_package_data():
@@ -65,7 +65,7 @@ setup(
     version          = get_version(),
     author           = "Zachary Voase",
     author_email     = "zacharyvoase@me.com",
-    url              = 'http://github.com/zacharyvoase/markdoc',
+    url              = 'https://github.com/seki-h/markdoc',
     description      = "A lightweight Markdown-based wiki build tool.",
     packages         = find_packages(where='src'),
     package_dir      = {'': 'src'},

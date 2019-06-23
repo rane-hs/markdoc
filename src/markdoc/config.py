@@ -42,7 +42,7 @@ class ConfigMeta(type):
                                  function][1]
 
 
-class Config(dict):
+class Config(dict, metaclass=ConfigMeta):
     
     """
     A dictionary which represents a single wiki's Markdoc configuration.
@@ -58,8 +58,6 @@ class Config(dict):
         config = Config(None, {'meta': {'root': '/path/to/wiki/root/'}, ...})
     
     """
-    
-    __metaclass__ = ConfigMeta
     
     def __init__(self, config_file, config):
         super(Config, self).__init__(flatten(config))
@@ -145,12 +143,12 @@ def flatten(dictionary, prefix=''):
         [('a.b', 1), ('a.c.d', 2), ('a.c.e.f', 3), ('g', 4)]
     """
     
-    for key in dictionary.keys():
+    for key in list(dictionary.keys()):
         value = dictionary.pop(key)
         if not isinstance(value, dict):
             dictionary[prefix + key] = value
         else:
-            for key2 in value.keys():
+            for key2 in list(value.keys()):
                 value2 = value.pop(key2)
                 if not isinstance(value2, dict):
                     dictionary[prefix + key + '.' + key2] = value2

@@ -4,7 +4,7 @@ import os
 import os.path as p
 import re
 
-from distribute_setup import use_setuptools; use_setuptools()
+#from distribute_setup import use_setuptools; use_setuptools()
 from setuptools import setup, find_packages
 
 

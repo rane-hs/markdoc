@@ -63,9 +63,9 @@ def find_package_data():
 setup(
     name             = 'Markdoc',
     version          = get_version(),
-    author           = "Zachary Voase",
-    author_email     = "zacharyvoase@me.com",
-    url              = 'https://github.com/seki-h/markdoc',
+    author           = "seki hiroshi",
+    author_email     = "rane.hs@gmail.com",
+    url              = 'https://github.com/rane-hs/markdoc',
     description      = "A lightweight Markdown-based wiki build tool.",
     packages         = find_packages(where='src'),
     package_dir      = {'': 'src'},

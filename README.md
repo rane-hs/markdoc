@@ -66,7 +66,7 @@ Potential use cases for Markdoc include, but aren’t limited to:
 
 The minimum requirements to run the Markdoc utility are:
 
-  * Python 2.4 or later (2.5+ highly recommended)
+  * Python 3.6 or later (3.7+ highly recommended)
   * A UNIX (or at least POSIX-compliant) operating system
   * [rsync](http://www.samba.org/rsync/) -- installed out of the box with most
     modern OSes, including Mac OS X and Ubuntu. In the future Markdoc may

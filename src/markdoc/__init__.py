@@ -34,7 +34,7 @@ if not hasattr(p, 'relpath'):
 
 
 default_formatter = logging.Formatter(
-    u'%(name)s: %(levelname)s: %(message)s')
+    '%(name)s: %(levelname)s: %(message)s')
 
 console_handler = logging.StreamHandler() # By default, outputs to stderr.
 console_handler.setFormatter(default_formatter)

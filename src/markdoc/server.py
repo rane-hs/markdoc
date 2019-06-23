@@ -24,7 +24,7 @@ def server_maker(config, **extra_config):
     the `CherryPyWSGIServer` constructor.
     """
     
-    from cherrypy.wsgiserver import CherryPyWSGIServer
+    from cheroot.wsgi import Server as WSGIServer
     
     bind_addr = (config['server.bind'], config['server.port'])
     kwargs = dict(
@@ -34,6 +34,6 @@ def server_maker(config, **extra_config):
         timeout=config['server.timeout'])
     kwargs.update(extra_config)
     
-    return lambda wsgi_app: CherryPyWSGIServer(bind_addr, wsgi_app, **kwargs)
+    return lambda wsgi_app: WSGIServer(bind_addr, wsgi_app, **kwargs)
 
 Config.server_maker = server_maker

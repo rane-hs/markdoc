@@ -52,7 +52,7 @@ def unflatten_extension_configs(config):
     
     configs = config['markdown.extension-configs']
     
-    for key, value in config.iteritems():
+    for key, value in config.items():
         if not key.startswith('markdown.extension-configs.'):
             continue
         

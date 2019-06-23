@@ -27,7 +27,7 @@ def main(cmd_args=None):
                 config = Config.for_file(args.config)
             else:
                 raise ConfigNotFound("Couldn't locate Markdoc config.")
-        except ConfigNotFound, exc:
+        except ConfigNotFound as exc:
             parser.error(str(exc))
     else:
         config = None

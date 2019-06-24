@@ -11,16 +11,16 @@ from markdoc.config import Config, ConfigNotFound
 
 def main(cmd_args=None):
     """The main entry point for running the Markdoc CLI."""
-    
+
     if cmd_args is not None:
         args = parser.parse_args(cmd_args)
     else:
         args = parser.parse_args()
-    
+
     if args.command != 'init':
         try:
             args.config = os.path.abspath(args.config)
-            
+
             if os.path.isdir(args.config):
                 config = Config.for_directory(args.config)
             elif os.path.isfile(args.config):
@@ -31,9 +31,9 @@ def main(cmd_args=None):
             parser.error(str(exc))
     else:
         config = None
-    
+
     logging.getLogger('markdoc').setLevel(getattr(logging, args.log_level))
-    
+
     command = getattr(commands, args.command.replace('-', '_'))
     return command(config, args)
 

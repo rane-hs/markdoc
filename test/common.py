@@ -8,7 +8,7 @@ from markdoc.config import Config
 
 
 def get_temporary_config():
-    
+
     """
     Return a temporary Markdoc configuration.
     
@@ -16,7 +16,7 @@ def get_temporary_config():
     you're done with this, you should call `clean_temporary_config()` on the
     config object.
     """
-    
+
     own_config_dir = p.join(p.dirname(p.abspath(__file__)), 'example') + p.sep
     temp_config_dir = p.join(tempfile.mkdtemp(), 'example')
     shutil.copytree(own_config_dir, temp_config_dir)
@@ -25,5 +25,5 @@ def get_temporary_config():
 
 def clean_temporary_config(config):
     """Delete a temporary configuration's wiki root."""
-    
+
     shutil.rmtree(p.dirname(config['meta.root']))

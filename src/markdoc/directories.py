@@ -6,8 +6,7 @@ from markdoc.config import Config
 
 
 def html_dir(config):
-    return p.abspath(p.join(config['meta.root'],
-        config.get('html-dir', config['hide-prefix'] + 'html')))
+    return p.abspath(p.join(config['meta.root'], config.get('html-dir', config['hide-prefix'] + 'html')))
 
 
 def static_dir(config):
@@ -19,13 +18,13 @@ def wiki_dir(config):
 
 
 def temp_dir(config):
-    return p.abspath(p.join(config['meta.root'],
-        config.get('temp-dir', config['hide-prefix'] + 'tmp')))
+    return p.abspath(p.join(config['meta.root'], config.get('temp-dir', config['hide-prefix'] + 'tmp')))
 
 
 def template_dir(config):
-    return p.abspath(p.join(config['meta.root'],
-        config.get('template-dir', config['hide-prefix'] + 'templates')))
+    return p.abspath(
+        p.join(config['meta.root'], config.get('template-dir', config['hide-prefix'] + 'templates'))
+    )
 
 
 Config.register_default('hide-prefix', '.')

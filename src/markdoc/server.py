@@ -12,7 +12,7 @@ Config.register_default('server.timeout', 10)
 
 
 def server_maker(config, **extra_config):
-    
+
     """
     Return a server-making callable to create a CherryPy WSGI server.
     
@@ -23,17 +23,19 @@ def server_maker(config, **extra_config):
     parameters by passing in keyword arguments which will be passed along to
     the `CherryPyWSGIServer` constructor.
     """
-    
+
     from cheroot.wsgi import Server as WSGIServer
-    
+
     bind_addr = (config['server.bind'], config['server.port'])
     kwargs = dict(
         numthreads=config['server.num-threads'],
         server_name=config['server.name'],
         request_queue_size=config['server.request-queue-size'],
-        timeout=config['server.timeout'])
+        timeout=config['server.timeout'],
+    )
     kwargs.update(extra_config)
-    
+
     return lambda wsgi_app: WSGIServer(bind_addr, wsgi_app, **kwargs)
+
 
 Config.server_maker = server_maker
